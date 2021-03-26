@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SimpleBlackJack
+﻿namespace SimpleBlackJack
 {
     class Card
     {
-        private int _rank;
-        private Suit _suit;
+        private readonly int _rank;
+        private readonly Suit _suit;
+        private static readonly string[] SuitNames = { "Kløver", "Ruter", "Hjerter", "Spar" };
+
         public bool IsFaceCard => _rank >= 11;
         public bool IsAce => _rank == 1;
         public int Value => 
@@ -24,8 +20,7 @@ namespace SimpleBlackJack
             _rank == 11 ? "Knekt" :
             _rank.ToString();
 
-        public string Description => _suit + " " + RankName + " (" + Value + ")";
-
+        public string Description => SuitNames[(int) _suit] + " " + RankName + " (" + Value + ")";
 
         public Card(int rank, Suit suit)
         {

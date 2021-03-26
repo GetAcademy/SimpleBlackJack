@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleBlackJack
 {
@@ -15,7 +13,7 @@ namespace SimpleBlackJack
         {
             var cards = Enumerable
                 .Range(0, 52)
-                .Select(i => new Card(i % 13, (Suit)(i / 13)))
+                .Select(i => new Card(1+(i % 13), (Suit)(i / 13)))
                 .ToArray();
             Shuffle(cards);
             _cards = new Stack<Card>(cards);
