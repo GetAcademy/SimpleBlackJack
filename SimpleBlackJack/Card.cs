@@ -17,11 +17,20 @@ namespace SimpleBlackJack
             IsFaceCard ? 10 : 
             _rank;
 
+        public string RankName =>
+            IsAce ? "Ess" :
+            _rank == 13 ? "Konge" :
+            _rank == 12 ? "Dame" :
+            _rank == 11 ? "Knekt" :
+            _rank.ToString();
+
+        public string Description => _suit + " " + RankName + " (" + Value + ")";
+
+
         public Card(int rank, Suit suit)
         {
             _rank = rank;
             _suit = suit;
         }
-
     }
 }
